@@ -38,7 +38,7 @@ vid2.set(cv2.CAP_PROP_FRAME_HEIGHT, HEIGHT)
 vid2.set(6,cv2.VideoWriter.fourcc('M','J','P','G'))
 vid2.set(cv2.CAP_PROP_FPS,30)
 
-i=0
+i=1
 ret0, frame0 = vid0.read() 
 cv2.imshow('在此窗口内按\'q\'键停止拍摄', frame0[:50,:50,:])
 
@@ -53,7 +53,7 @@ while(True):
     ret1, frame1 = vid1.read() 
     ret2, frame2 = vid2.read() 
 
-    if i==0:
+    if i==1:
         start_time = time.perf_counter()
     f0.append(frame0)
     f1.append(frame1)
