@@ -56,7 +56,7 @@ if __name__ == '__main__':
 
     begin_id = 0        # 起始文件夹的id，一般为0，不用改
     img_type = f'jpg'   # 影像类型
-    topic_name = f'cam0'    # Topic名称, 不用修改
+    topic_name = f'cam'    # Topic名称, 不用修改
 
     bag_out = rosbag.Bag(bag_path,'w')
 
@@ -64,6 +64,7 @@ if __name__ == '__main__':
 
     for cam_id in range(begin_id, begin_id+cam_num):
         tmp_img_dir = img_dir + f'/{cam_id}'
+        tmp_topic_name = topic_name + f'/{cam_id}'
         paths, names, files = findFiles(tmp_img_dir,img_type)
         for i in range(len(files)):
             print(f'CAM {cam_id}: ', i,'/',len(files))
@@ -73,7 +74,7 @@ if __name__ == '__main__':
             ros_ts = rospy.rostime.Time.from_sec(timestamp)
             ros_img = cb.cv2_to_imgmsg(cv2.cvtColor(frame_img, cv2.COLOR_BGR2GRAY),encoding='mono8')
             ros_img.header.stamp = ros_ts
-            bag_out.write(topic_name,ros_img,ros_ts)
+            bag_out.write(tmp_topic_name,ros_img,ros_ts)
     
     bag_out.close()
 
