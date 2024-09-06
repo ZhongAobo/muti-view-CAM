@@ -19,16 +19,19 @@ os.makedirs(out_path2,exist_ok=True)
 
 out_paths = [out_path0,out_path1,out_path2]
 # define a video capture object 
+
 vid0 = cv2.VideoCapture(0) 
 vid0.set(cv2.CAP_PROP_FRAME_WIDTH, WIDTH)
 vid0.set(cv2.CAP_PROP_FRAME_HEIGHT, HEIGHT)
 vid0.set(6,cv2.VideoWriter.fourcc('M','J','P','G'))
 vid0.set(cv2.CAP_PROP_FPS,30)
+
 vid1 = cv2.VideoCapture(2) 
 vid1.set(cv2.CAP_PROP_FRAME_WIDTH, WIDTH)
 vid1.set(cv2.CAP_PROP_FRAME_HEIGHT, HEIGHT)
 vid1.set(6,cv2.VideoWriter.fourcc('M','J','P','G'))
 vid1.set(cv2.CAP_PROP_FPS,30)
+
 vid2 = cv2.VideoCapture(4) 
 vid2.set(cv2.CAP_PROP_FRAME_WIDTH, WIDTH)
 vid2.set(cv2.CAP_PROP_FRAME_HEIGHT, HEIGHT)
